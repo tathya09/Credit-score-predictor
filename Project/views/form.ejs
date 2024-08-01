@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility Payments and ID Proof</title>
+    <link rel="stylesheet" href="/score.css">
+    
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>CreditScoreTracker</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <% if (user) { %> <!-- Check if user is logged in -->
+                    <li><a href="/creditscore">Dashboard</a></li> <!-- Added link to Credit Score -->
+                    <li><a class="danger"href="/logout">Logout</a></li>
+                <% } else { %>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/signup">Sign Up</a></li>
+                <% } %>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-container">
+            <h2>Enter Your Utility Payments and Upload ID Proof</h2>
+            <form action="/results" method="POST" enctype="multipart/form-data">
+                <label for="electricityBill">Enter your last 3 month's Electricity Bill </label>
+                <input type="text" id="electricityBill" name="electricityBill" required>
+
+                <label for="waterBill">Enter your last 3 month's Water Bill Amount</label>
+                <input type="text" id="waterBill" name="waterBill" required>
+
+                <label for="gasBill">Enter your last 3 month's Gas Bill Amount</label>
+                <input type="text" id="gasBill" name="gasBill" required>
+
+                <label for="mobileRecharge"> Average Mobile Recharge amount spent</label>
+                <input type="text" id="mobileRecharge" name="mobileRecharge" required>
+
+                <label for="employmentTenure">Duration of Employment (in years)</label>
+                <input type="text" id="employmentTenure" name="employmentTenure" required>
+
+                <label for="dataUsage">Total Internet Data Usage (in GB)</label>
+                <input type="text" id="dataUsage" name="dataUsage" required>
+
+                <label for="rationCardValue">Total Value of Ration Card Purchases</label>
+                <input type="text" id="rationCardValue" name="rationCardValue" required>
+
+                <label for="minBankBalance">Minimum Bank Balance</label>
+                <input type="text" id="minBankBalance" name="minBankBalance">
+
+                <label for="collateralValue">Collateral Value</label>
+                <input type="text" id="collateralValue" name="collateralValue">
+
+                <label for="idProof">Upload Government ID Proof</label>
+                <input type="file" id="idProof" name="idProof" accept="image/*" required>
+
+                <button type="submit">Submit</button>
+                <p class="remark">Note: Please do not use commas while entering amounts.</p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CreditScoreTracker. All rights reserved.</p>
+    </footer>
+</body>
+</html>

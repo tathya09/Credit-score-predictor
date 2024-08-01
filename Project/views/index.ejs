@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/homepage.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><%= title %></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <% if (user) { %>
+                    <li><a href="/creditscore">Dashboard</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                <% } else { %>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/signup">Sign Up</a></li>
+                <% } %>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Track Your Utility Payments and Get a Credit Score!</h2>
+            <p>We help you understand your financial status by tracking your utility payments and providing a credit score.</p>
+            <% if (user) { %>
+                <a href="/creditscore" class="btn-danger">Get Started</a>
+            <% } else { %>
+                <a href="/signup" class="btn">Get Started</a>
+            <% } %>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CreditScoreTracker. All rights reserved.</p>
+    </footer>
+</body>
+</html>
