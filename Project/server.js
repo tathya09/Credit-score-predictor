@@ -187,6 +187,13 @@ app.post('/results', upload.single('idProof'), async (req, res) => {
         }
 
         // Round the score to two decimal places
+       if (score < 250) {
+            score = 250.10;
+        } else if (score > 967) {
+            score = 967;
+        }
+
+        
         score = parseFloat(score.toFixed(2));
 
         // Check if the user already has a UserInput record
